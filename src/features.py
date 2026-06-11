@@ -121,24 +121,33 @@ def get_team_strength(players_df, nationality):
             'team_stamina':       65.0,
         }
 
-    attackers   = team[team['positionType'] == 'Attack'].nlargest(5, 'overallRating')
-    defenders   = team[team['positionType'] == 'Defense'].nlargest(4, 'overallRating')
-    midfielders = team[team['positionType'] == 'Midfielder'].nlargest(4, 'overallRating')
-    gks         = team[team['positionType'] == 'Goalkeeper'].nlargest(1, 'overallRating')
-    bench       = team.nlargest(26, 'overallRating').tail(15)
+    # Goalkeepers are mislabeled as positionType=='Defense' in FC26 — the only
+    # reliable keeper flag is the 'position' column. Separate them first so they
+    # don't pollute the defender pool and so gk_rating is actually a keeper.
+    gks      = team[team['position'] == 'GK'].nlargest(3, 'overallRating')   # 3-keeper squad
+    outfield = team[team['position'] != 'GK']
+
+    # 26-man squad = best 3 GK + top 23 outfield; of the 23, top 11 start, 12 bench.
+    squad_outfield = outfield.nlargest(23, 'overallRating')
+    starting_xi    = squad_outfield.head(11)
+    bench          = squad_outfield.tail(12)
+
+    attackers   = squad_outfield[squad_outfield['positionType'] == 'Attack'].nlargest(5, 'overallRating')
+    defenders   = squad_outfield[squad_outfield['positionType'] == 'Defense'].nlargest(4, 'overallRating')
+    midfielders = squad_outfield[squad_outfield['positionType'] == 'Midfielder'].nlargest(4, 'overallRating')
 
     def safe_mean(df, col):
         return df[col].mean() if not df.empty else 65.0
 
     return {
-        'attack_strength':    safe_mean(attackers,                          'sho'),
-        'defensive_strength': safe_mean(defenders,                          'def'),
-        'gk_rating':          safe_mean(gks,                                'overallRating'),
-        'gk_height':          safe_mean(gks,                                'height'),
-        'squad_depth':        safe_mean(bench,                              'overallRating'),
-        'passing_quality':    safe_mean(midfielders,                        'pas'),
-        'team_pace':          safe_mean(team.nlargest(11, 'overallRating'), 'pac'),
-        'team_stamina':       safe_mean(team.nlargest(11, 'overallRating'), 'stamina'),
+        'attack_strength':    safe_mean(attackers,        'sho'),
+        'defensive_strength': safe_mean(defenders,        'def'),
+        'gk_rating':          safe_mean(gks.head(1),      'overallRating'),  # starting keeper
+        'gk_height':          safe_mean(gks.head(1),      'height'),
+        'squad_depth':        safe_mean(bench,            'overallRating'),
+        'passing_quality':    safe_mean(midfielders,      'pas'),
+        'team_pace':          safe_mean(starting_xi,      'pac'),
+        'team_stamina':       safe_mean(starting_xi,      'stamina'),
     }
 
 

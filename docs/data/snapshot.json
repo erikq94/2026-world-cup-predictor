@@ -1,0 +1,1740 @@
+{
+  "snapshot": "snapshot_00_pretournament",
+  "round": "group_stage",
+  "date": "2026-06-11",
+  "n_simulations": 50000,
+  "temperature": 1.3,
+  "model_version": "v2",
+  "teams": [
+    {
+      "team": "Spain",
+      "elo": 2025,
+      "stats": {
+        "attack": 82.7,
+        "defense": 81.5,
+        "gk": 87.0,
+        "depth": 83.3
+      },
+      "reach": {
+        "round_of_32": 96.8,
+        "round_of_16": 80.5,
+        "quarterfinal": 64.6,
+        "semifinal": 45.2,
+        "final": 32.4,
+        "champion": 21.1
+      }
+    },
+    {
+      "team": "Argentina",
+      "elo": 2023,
+      "stats": {
+        "attack": 84.4,
+        "defense": 82.2,
+        "gk": 85.0,
+        "depth": 80.0
+      },
+      "reach": {
+        "round_of_32": 95.3,
+        "round_of_16": 76.4,
+        "quarterfinal": 48.7,
+        "semifinal": 34.2,
+        "final": 24.5,
+        "champion": 15.5
+      }
+    },
+    {
+      "team": "France",
+      "elo": 1982,
+      "stats": {
+        "attack": 85.4,
+        "defense": 85.8,
+        "gk": 87.0,
+        "depth": 83.5
+      },
+      "reach": {
+        "round_of_32": 91.5,
+        "round_of_16": 64.5,
+        "quarterfinal": 42.8,
+        "semifinal": 29.8,
+        "final": 20.6,
+        "champion": 12.8
+      }
+    },
+    {
+      "team": "Brazil",
+      "elo": 1914,
+      "stats": {
+        "attack": 78.0,
+        "defense": 87.0,
+        "gk": 89.0,
+        "depth": 81.3
+      },
+      "reach": {
+        "round_of_32": 94.5,
+        "round_of_16": 54.9,
+        "quarterfinal": 35.3,
+        "semifinal": 22.2,
+        "final": 11.9,
+        "champion": 6.2
+      }
+    },
+    {
+      "team": "England",
+      "elo": 1908,
+      "stats": {
+        "attack": 83.4,
+        "defense": 82.8,
+        "gk": 84.0,
+        "depth": 81.8
+      },
+      "reach": {
+        "round_of_32": 91.0,
+        "round_of_16": 58.0,
+        "quarterfinal": 34.9,
+        "semifinal": 17.2,
+        "final": 10.6,
+        "champion": 5.4
+      }
+    },
+    {
+      "team": "Germany",
+      "elo": 1901,
+      "stats": {
+        "attack": 80.5,
+        "defense": 84.5,
+        "gk": 86.0,
+        "depth": 81.9
+      },
+      "reach": {
+        "round_of_32": 95.1,
+        "round_of_16": 59.9,
+        "quarterfinal": 35.0,
+        "semifinal": 17.9,
+        "final": 10.0,
+        "champion": 4.8
+      }
+    },
+    {
+      "team": "Portugal",
+      "elo": 1912,
+      "stats": {
+        "attack": 81.7,
+        "defense": 81.5,
+        "gk": 84.0,
+        "depth": 80.9
+      },
+      "reach": {
+        "round_of_32": 86.9,
+        "round_of_16": 54.7,
+        "quarterfinal": 31.9,
+        "semifinal": 15.6,
+        "final": 9.4,
+        "champion": 4.4
+      }
+    },
+    {
+      "team": "Netherlands",
+      "elo": 1900,
+      "stats": {
+        "attack": 77.0,
+        "defense": 81.8,
+        "gk": 79.0,
+        "depth": 80.5
+      },
+      "reach": {
+        "round_of_32": 88.2,
+        "round_of_16": 54.3,
+        "quarterfinal": 30.7,
+        "semifinal": 15.2,
+        "final": 8.2,
+        "champion": 3.8
+      }
+    },
+    {
+      "team": "Morocco",
+      "elo": 1900,
+      "stats": {
+        "attack": 77.6,
+        "defense": 78.8,
+        "gk": 82.0,
+        "depth": 76.1
+      },
+      "reach": {
+        "round_of_32": 90.9,
+        "round_of_16": 49.2,
+        "quarterfinal": 27.4,
+        "semifinal": 15.8,
+        "final": 7.7,
+        "champion": 3.3
+      }
+    },
+    {
+      "team": "Colombia",
+      "elo": 1900,
+      "stats": {
+        "attack": 78.6,
+        "defense": 78.0,
+        "gk": 76.0,
+        "depth": 76.2
+      },
+      "reach": {
+        "round_of_32": 79.2,
+        "round_of_16": 46.1,
+        "quarterfinal": 25.6,
+        "semifinal": 12.7,
+        "final": 6.4,
+        "champion": 2.8
+      }
+    },
+    {
+      "team": "Japan",
+      "elo": 1897,
+      "stats": {
+        "attack": 76.3,
+        "defense": 77.0,
+        "gk": 74.0,
+        "depth": 75.2
+      },
+      "reach": {
+        "round_of_32": 83.9,
+        "round_of_16": 49.1,
+        "quarterfinal": 27.1,
+        "semifinal": 13.3,
+        "final": 6.3,
+        "champion": 2.7
+      }
+    },
+    {
+      "team": "Belgium",
+      "elo": 1831,
+      "stats": {
+        "attack": 79.0,
+        "defense": 77.5,
+        "gk": 89.0,
+        "depth": 78.0
+      },
+      "reach": {
+        "round_of_32": 89.5,
+        "round_of_16": 61.1,
+        "quarterfinal": 27.4,
+        "semifinal": 13.0,
+        "final": 5.3,
+        "champion": 2.1
+      }
+    },
+    {
+      "team": "Uruguay",
+      "elo": 1838,
+      "stats": {
+        "attack": 78.8,
+        "defense": 81.0,
+        "gk": 79.0,
+        "depth": 76.5
+      },
+      "reach": {
+        "round_of_32": 79.0,
+        "round_of_16": 50.4,
+        "quarterfinal": 30.7,
+        "semifinal": 14.3,
+        "final": 5.0,
+        "champion": 1.9
+      }
+    },
+    {
+      "team": "Croatia",
+      "elo": 1867,
+      "stats": {
+        "attack": 78.8,
+        "defense": 78.0,
+        "gk": 80.0,
+        "depth": 76.2
+      },
+      "reach": {
+        "round_of_32": 80.3,
+        "round_of_16": 44.6,
+        "quarterfinal": 23.0,
+        "semifinal": 10.4,
+        "final": 4.6,
+        "champion": 1.8
+      }
+    },
+    {
+      "team": "Ecuador",
+      "elo": 1863,
+      "stats": {
+        "attack": 70.8,
+        "defense": 79.8,
+        "gk": 74.0,
+        "depth": 70.7
+      },
+      "reach": {
+        "round_of_32": 88.2,
+        "round_of_16": 45.5,
+        "quarterfinal": 22.9,
+        "semifinal": 10.1,
+        "final": 4.1,
+        "champion": 1.5
+      }
+    },
+    {
+      "team": "Turkey",
+      "elo": 1820,
+      "stats": {
+        "attack": 75.4,
+        "defense": 78.2,
+        "gk": 80.0,
+        "depth": 76.1
+      },
+      "reach": {
+        "round_of_32": 81.8,
+        "round_of_16": 40.9,
+        "quarterfinal": 18.7,
+        "semifinal": 9.5,
+        "final": 3.5,
+        "champion": 1.3
+      }
+    },
+    {
+      "team": "Switzerland",
+      "elo": 1813,
+      "stats": {
+        "attack": 74.6,
+        "defense": 79.5,
+        "gk": 87.0,
+        "depth": 75.0
+      },
+      "reach": {
+        "round_of_32": 88.2,
+        "round_of_16": 40.1,
+        "quarterfinal": 23.3,
+        "semifinal": 9.8,
+        "final": 3.3,
+        "champion": 1.1
+      }
+    },
+    {
+      "team": "Senegal",
+      "elo": 1834,
+      "stats": {
+        "attack": 77.3,
+        "defense": 74.8,
+        "gk": 80.0,
+        "depth": 74.9
+      },
+      "reach": {
+        "round_of_32": 74.3,
+        "round_of_16": 33.6,
+        "quarterfinal": 17.2,
+        "semifinal": 8.7,
+        "final": 3.2,
+        "champion": 1.1
+      }
+    },
+    {
+      "team": "Mexico",
+      "elo": 1833,
+      "stats": {
+        "attack": 76.2,
+        "defense": 69.2,
+        "gk": 68.0,
+        "depth": 62.6
+      },
+      "reach": {
+        "round_of_32": 91.2,
+        "round_of_16": 49.6,
+        "quarterfinal": 20.6,
+        "semifinal": 8.3,
+        "final": 2.5,
+        "champion": 0.8
+      }
+    },
+    {
+      "team": "Austria",
+      "elo": 1800,
+      "stats": {
+        "attack": 77.0,
+        "defense": 80.2,
+        "gk": 73.0,
+        "depth": 75.4
+      },
+      "reach": {
+        "round_of_32": 69.4,
+        "round_of_16": 39.9,
+        "quarterfinal": 16.0,
+        "semifinal": 7.5,
+        "final": 2.4,
+        "champion": 0.8
+      }
+    },
+    {
+      "team": "Norway",
+      "elo": 1794,
+      "stats": {
+        "attack": 80.4,
+        "defense": 74.8,
+        "gk": 76.0,
+        "depth": 74.4
+      },
+      "reach": {
+        "round_of_32": 63.9,
+        "round_of_16": 29.8,
+        "quarterfinal": 14.4,
+        "semifinal": 6.9,
+        "final": 2.1,
+        "champion": 0.7
+      }
+    },
+    {
+      "team": "South Korea",
+      "elo": 1807,
+      "stats": {
+        "attack": 75.2,
+        "defense": 73.7,
+        "gk": 75.0,
+        "depth": 71.2
+      },
+      "reach": {
+        "round_of_32": 83.4,
+        "round_of_16": 43.4,
+        "quarterfinal": 18.4,
+        "semifinal": 7.2,
+        "final": 2.2,
+        "champion": 0.6
+      }
+    },
+    {
+      "team": "Canada",
+      "elo": 1794,
+      "stats": {
+        "attack": 75.2,
+        "defense": 73.2,
+        "gk": 78.0,
+        "depth": 69.7
+      },
+      "reach": {
+        "round_of_32": 90.4,
+        "round_of_16": 37.7,
+        "quarterfinal": 18.3,
+        "semifinal": 6.6,
+        "final": 1.9,
+        "champion": 0.5
+      }
+    },
+    {
+      "team": "Ivory Coast",
+      "elo": 1738,
+      "stats": {
+        "attack": 74.5,
+        "defense": 80.0,
+        "gk": 76.0,
+        "depth": 75.7
+      },
+      "reach": {
+        "round_of_32": 76.7,
+        "round_of_16": 31.5,
+        "quarterfinal": 12.7,
+        "semifinal": 4.8,
+        "final": 1.4,
+        "champion": 0.4
+      }
+    },
+    {
+      "team": "Iran",
+      "elo": 1808,
+      "stats": {
+        "attack": 78.0,
+        "defense": 69.0,
+        "gk": 68.0,
+        "depth": 71.6
+      },
+      "reach": {
+        "round_of_32": 76.6,
+        "round_of_16": 36.8,
+        "quarterfinal": 14.2,
+        "semifinal": 5.3,
+        "final": 1.4,
+        "champion": 0.4
+      }
+    },
+    {
+      "team": "Algeria",
+      "elo": 1797,
+      "stats": {
+        "attack": 75.0,
+        "defense": 76.7,
+        "gk": 65.0,
+        "depth": 74.1
+      },
+      "reach": {
+        "round_of_32": 61.8,
+        "round_of_16": 32.5,
+        "quarterfinal": 12.1,
+        "semifinal": 5.3,
+        "final": 1.5,
+        "champion": 0.4
+      }
+    },
+    {
+      "team": "Paraguay",
+      "elo": 1770,
+      "stats": {
+        "attack": 75.2,
+        "defense": 73.5,
+        "gk": 72.0,
+        "depth": 72.8
+      },
+      "reach": {
+        "round_of_32": 72.1,
+        "round_of_16": 27.3,
+        "quarterfinal": 9.8,
+        "semifinal": 3.9,
+        "final": 1.0,
+        "champion": 0.3
+      }
+    },
+    {
+      "team": "Egypt",
+      "elo": 1740,
+      "stats": {
+        "attack": 70.5,
+        "defense": 70.2,
+        "gk": 65.0,
+        "depth": 72.7
+      },
+      "reach": {
+        "round_of_32": 69.7,
+        "round_of_16": 30.1,
+        "quarterfinal": 10.8,
+        "semifinal": 3.6,
+        "final": 1.0,
+        "champion": 0.3
+      }
+    },
+    {
+      "team": "Czech Republic",
+      "elo": 1718,
+      "stats": {
+        "attack": 77.0,
+        "defense": 74.0,
+        "gk": 76.0,
+        "depth": 74.1
+      },
+      "reach": {
+        "round_of_32": 67.6,
+        "round_of_16": 30.2,
+        "quarterfinal": 10.6,
+        "semifinal": 3.5,
+        "final": 0.8,
+        "champion": 0.2
+      }
+    },
+    {
+      "team": "Scotland",
+      "elo": 1703,
+      "stats": {
+        "attack": 72.6,
+        "defense": 75.2,
+        "gk": 72.0,
+        "depth": 73.4
+      },
+      "reach": {
+        "round_of_32": 66.0,
+        "round_of_16": 25.8,
+        "quarterfinal": 9.3,
+        "semifinal": 3.3,
+        "final": 0.8,
+        "champion": 0.2
+      }
+    },
+    {
+      "team": "Australia",
+      "elo": 1802,
+      "stats": {
+        "attack": 68.8,
+        "defense": 71.8,
+        "gk": 70.0,
+        "depth": 69.6
+      },
+      "reach": {
+        "round_of_32": 69.7,
+        "round_of_16": 25.7,
+        "quarterfinal": 9.4,
+        "semifinal": 3.5,
+        "final": 0.9,
+        "champion": 0.2
+      }
+    },
+    {
+      "team": "Sweden",
+      "elo": 1729,
+      "stats": {
+        "attack": 78.2,
+        "defense": 75.0,
+        "gk": 74.0,
+        "depth": 75.0
+      },
+      "reach": {
+        "round_of_32": 66.2,
+        "round_of_16": 27.4,
+        "quarterfinal": 10.3,
+        "semifinal": 3.6,
+        "final": 1.0,
+        "champion": 0.2
+      }
+    },
+    {
+      "team": "United States",
+      "elo": 1792,
+      "stats": {
+        "attack": 65.0,
+        "defense": 65.0,
+        "gk": 65.0,
+        "depth": 65.0
+      },
+      "reach": {
+        "round_of_32": 56.8,
+        "round_of_16": 18.2,
+        "quarterfinal": 5.5,
+        "semifinal": 1.8,
+        "final": 0.5,
+        "champion": 0.1
+      }
+    },
+    {
+      "team": "Tunisia",
+      "elo": 1698,
+      "stats": {
+        "attack": 69.0,
+        "defense": 69.5,
+        "gk": 65.0,
+        "depth": 66.9
+      },
+      "reach": {
+        "round_of_32": 37.2,
+        "round_of_16": 12.1,
+        "quarterfinal": 3.8,
+        "semifinal": 1.1,
+        "final": 0.2,
+        "champion": 0.1
+      }
+    },
+    {
+      "team": "Uzbekistan",
+      "elo": 1769,
+      "stats": {
+        "attack": 69.5,
+        "defense": 73.0,
+        "gk": 65.0,
+        "depth": 70.5
+      },
+      "reach": {
+        "round_of_32": 45.8,
+        "round_of_16": 15.6,
+        "quarterfinal": 5.1,
+        "semifinal": 1.5,
+        "final": 0.4,
+        "champion": 0.1
+      }
+    },
+    {
+      "team": "South Africa",
+      "elo": 1630,
+      "stats": {
+        "attack": 63.3,
+        "defense": 68.0,
+        "gk": 65.0,
+        "depth": 65.2
+      },
+      "reach": {
+        "round_of_32": 39.5,
+        "round_of_16": 10.0,
+        "quarterfinal": 2.2,
+        "semifinal": 0.4,
+        "final": 0.0,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Qatar",
+      "elo": 1595,
+      "stats": {
+        "attack": 65.0,
+        "defense": 65.0,
+        "gk": 65.0,
+        "depth": 65.0
+      },
+      "reach": {
+        "round_of_32": 44.6,
+        "round_of_16": 8.8,
+        "quarterfinal": 1.8,
+        "semifinal": 0.3,
+        "final": 0.0,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Bosnia and Herzegovina",
+      "elo": 1595,
+      "stats": {
+        "attack": 75.6,
+        "defense": 73.2,
+        "gk": 77.0,
+        "depth": 70.4
+      },
+      "reach": {
+        "round_of_32": 58.9,
+        "round_of_16": 14.9,
+        "quarterfinal": 4.0,
+        "semifinal": 0.9,
+        "final": 0.1,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Haiti",
+      "elo": 1599,
+      "stats": {
+        "attack": 66.7,
+        "defense": 62.5,
+        "gk": 69.0,
+        "depth": 65.1
+      },
+      "reach": {
+        "round_of_32": 26.4,
+        "round_of_16": 5.7,
+        "quarterfinal": 1.1,
+        "semifinal": 0.2,
+        "final": 0.0,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Cura\u00e7ao",
+      "elo": 1525,
+      "stats": {
+        "attack": 48.0,
+        "defense": 62.5,
+        "gk": 65.0,
+        "depth": 64.6
+      },
+      "reach": {
+        "round_of_32": 19.5,
+        "round_of_16": 3.2,
+        "quarterfinal": 0.5,
+        "semifinal": 0.1,
+        "final": 0.0,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "New Zealand",
+      "elo": 1637,
+      "stats": {
+        "attack": 69.0,
+        "defense": 66.8,
+        "gk": 71.0,
+        "depth": 64.6
+      },
+      "reach": {
+        "round_of_32": 33.1,
+        "round_of_16": 9.5,
+        "quarterfinal": 2.5,
+        "semifinal": 0.6,
+        "final": 0.1,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Saudi Arabia",
+      "elo": 1652,
+      "stats": {
+        "attack": 67.0,
+        "defense": 68.0,
+        "gk": 72.0,
+        "depth": 69.2
+      },
+      "reach": {
+        "round_of_32": 47.2,
+        "round_of_16": 15.1,
+        "quarterfinal": 4.5,
+        "semifinal": 1.1,
+        "final": 0.2,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Cape Verde",
+      "elo": 1616,
+      "stats": {
+        "attack": 70.0,
+        "defense": 69.8,
+        "gk": 74.0,
+        "depth": 65.4
+      },
+      "reach": {
+        "round_of_32": 33.2,
+        "round_of_16": 9.8,
+        "quarterfinal": 2.6,
+        "semifinal": 0.7,
+        "final": 0.1,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Iraq",
+      "elo": 1702,
+      "stats": {
+        "attack": 60.7,
+        "defense": 63.7,
+        "gk": 65.0,
+        "depth": 65.0
+      },
+      "reach": {
+        "round_of_32": 28.8,
+        "round_of_16": 7.5,
+        "quarterfinal": 2.0,
+        "semifinal": 0.5,
+        "final": 0.1,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Jordan",
+      "elo": 1690,
+      "stats": {
+        "attack": 65.0,
+        "defense": 73.0,
+        "gk": 65.0,
+        "depth": 75.0
+      },
+      "reach": {
+        "round_of_32": 24.3,
+        "round_of_16": 8.3,
+        "quarterfinal": 2.3,
+        "semifinal": 0.6,
+        "final": 0.1,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "DR Congo",
+      "elo": 1677,
+      "stats": {
+        "attack": 76.6,
+        "defense": 71.2,
+        "gk": 67.0,
+        "depth": 70.5
+      },
+      "reach": {
+        "round_of_32": 35.2,
+        "round_of_16": 10.9,
+        "quarterfinal": 3.3,
+        "semifinal": 1.0,
+        "final": 0.2,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Ghana",
+      "elo": 1565,
+      "stats": {
+        "attack": 71.3,
+        "defense": 75.0,
+        "gk": 73.0,
+        "depth": 73.0
+      },
+      "reach": {
+        "round_of_32": 30.1,
+        "round_of_16": 6.5,
+        "quarterfinal": 1.4,
+        "semifinal": 0.3,
+        "final": 0.0,
+        "champion": 0.0
+      }
+    },
+    {
+      "team": "Panama",
+      "elo": 1723,
+      "stats": {
+        "attack": 68.5,
+        "defense": 66.8,
+        "gk": 72.0,
+        "depth": 67.7
+      },
+      "reach": {
+        "round_of_32": 40.0,
+        "round_of_16": 12.1,
+        "quarterfinal": 3.3,
+        "semifinal": 0.8,
+        "final": 0.1,
+        "champion": 0.0
+      }
+    }
+  ],
+  "predicted_bracket": {
+    "rounds": [
+      {
+        "round": "round_of_32",
+        "matches": [
+          {
+            "home": "Mexico",
+            "away": "Iran",
+            "winner": "Mexico",
+            "win_pct": 62.2
+          },
+          {
+            "home": "Switzerland",
+            "away": "Uruguay",
+            "winner": "Uruguay",
+            "win_pct": 58.6
+          },
+          {
+            "home": "Brazil",
+            "away": "Senegal",
+            "winner": "Brazil",
+            "win_pct": 72.1
+          },
+          {
+            "home": "Turkey",
+            "away": "Austria",
+            "winner": "Turkey",
+            "win_pct": 58.0
+          },
+          {
+            "home": "Germany",
+            "away": "Colombia",
+            "winner": "Germany",
+            "win_pct": 59.2
+          },
+          {
+            "home": "Netherlands",
+            "away": "Croatia",
+            "winner": "Netherlands",
+            "win_pct": 60.4
+          },
+          {
+            "home": "Belgium",
+            "away": "South Korea",
+            "winner": "Belgium",
+            "win_pct": 66.4
+          },
+          {
+            "home": "Spain",
+            "away": "Canada",
+            "winner": "Spain",
+            "win_pct": 86.6
+          },
+          {
+            "home": "France",
+            "away": "Morocco",
+            "winner": "France",
+            "win_pct": 72.1
+          },
+          {
+            "home": "Argentina",
+            "away": "Australia",
+            "winner": "Argentina",
+            "win_pct": 90.2
+          },
+          {
+            "home": "Portugal",
+            "away": "Ecuador",
+            "winner": "Portugal",
+            "win_pct": 66.6
+          },
+          {
+            "home": "England",
+            "away": "Japan",
+            "winner": "England",
+            "win_pct": 59.7
+          },
+          {
+            "home": "Algeria",
+            "away": "Norway",
+            "winner": "Norway",
+            "win_pct": 52.5
+          },
+          {
+            "home": "United States",
+            "away": "Uzbekistan",
+            "winner": "Uzbekistan",
+            "win_pct": 62.1
+          },
+          {
+            "home": "Egypt",
+            "away": "Ivory Coast",
+            "winner": "Ivory Coast",
+            "win_pct": 53.3
+          },
+          {
+            "home": "Sweden",
+            "away": "Panama",
+            "winner": "Sweden",
+            "win_pct": 72.2
+          }
+        ]
+      },
+      {
+        "round": "round_of_16",
+        "matches": [
+          {
+            "home": "Mexico",
+            "away": "Uruguay",
+            "winner": "Uruguay",
+            "win_pct": 61.7
+          },
+          {
+            "home": "Brazil",
+            "away": "Turkey",
+            "winner": "Brazil",
+            "win_pct": 71.0
+          },
+          {
+            "home": "Germany",
+            "away": "Netherlands",
+            "winner": "Germany",
+            "win_pct": 52.6
+          },
+          {
+            "home": "Belgium",
+            "away": "Spain",
+            "winner": "Spain",
+            "win_pct": 82.4
+          },
+          {
+            "home": "France",
+            "away": "Argentina",
+            "winner": "France",
+            "win_pct": 50.7
+          },
+          {
+            "home": "Portugal",
+            "away": "England",
+            "winner": "England",
+            "win_pct": 54.7
+          },
+          {
+            "home": "Norway",
+            "away": "Uzbekistan",
+            "winner": "Norway",
+            "win_pct": 70.9
+          },
+          {
+            "home": "Ivory Coast",
+            "away": "Sweden",
+            "winner": "Sweden",
+            "win_pct": 50.3
+          }
+        ]
+      },
+      {
+        "round": "quarterfinal",
+        "matches": [
+          {
+            "home": "Uruguay",
+            "away": "Brazil",
+            "winner": "Brazil",
+            "win_pct": 67.5
+          },
+          {
+            "home": "Germany",
+            "away": "Spain",
+            "winner": "Spain",
+            "win_pct": 71.9
+          },
+          {
+            "home": "France",
+            "away": "England",
+            "winner": "France",
+            "win_pct": 64.6
+          },
+          {
+            "home": "Norway",
+            "away": "Sweden",
+            "winner": "Norway",
+            "win_pct": 60.3
+          }
+        ]
+      },
+      {
+        "round": "semifinal",
+        "matches": [
+          {
+            "home": "Brazil",
+            "away": "Spain",
+            "winner": "Spain",
+            "win_pct": 68.8
+          },
+          {
+            "home": "France",
+            "away": "Norway",
+            "winner": "France",
+            "win_pct": 80.5
+          }
+        ]
+      },
+      {
+        "round": "final",
+        "matches": [
+          {
+            "home": "Spain",
+            "away": "France",
+            "winner": "Spain",
+            "win_pct": 53.2
+          }
+        ]
+      }
+    ],
+    "champion": "Spain"
+  },
+  "group_predictions": [
+    {
+      "group": "A",
+      "date": "2026-06-11",
+      "home": "Mexico",
+      "away": "South Africa",
+      "home_win": 69.6,
+      "draw": 23.8,
+      "away_win": 6.7
+    },
+    {
+      "group": "A",
+      "date": "2026-06-11",
+      "home": "South Korea",
+      "away": "Czech Republic",
+      "home_win": 51.2,
+      "draw": 23.2,
+      "away_win": 25.6
+    },
+    {
+      "group": "A",
+      "date": "2026-06-18",
+      "home": "Czech Republic",
+      "away": "South Africa",
+      "home_win": 55.9,
+      "draw": 29.0,
+      "away_win": 15.1
+    },
+    {
+      "group": "A",
+      "date": "2026-06-18",
+      "home": "Mexico",
+      "away": "South Korea",
+      "home_win": 50.0,
+      "draw": 21.3,
+      "away_win": 28.7
+    },
+    {
+      "group": "A",
+      "date": "2026-06-24",
+      "home": "Mexico",
+      "away": "Czech Republic",
+      "home_win": 52.1,
+      "draw": 29.0,
+      "away_win": 18.9
+    },
+    {
+      "group": "A",
+      "date": "2026-06-24",
+      "home": "South Africa",
+      "away": "South Korea",
+      "home_win": 14.4,
+      "draw": 15.8,
+      "away_win": 69.8
+    },
+    {
+      "group": "B",
+      "date": "2026-06-12",
+      "home": "Canada",
+      "away": "Bosnia and Herzegovina",
+      "home_win": 61.7,
+      "draw": 25.1,
+      "away_win": 13.2
+    },
+    {
+      "group": "B",
+      "date": "2026-06-13",
+      "home": "Qatar",
+      "away": "Switzerland",
+      "home_win": 13.6,
+      "draw": 22.6,
+      "away_win": 63.9
+    },
+    {
+      "group": "B",
+      "date": "2026-06-18",
+      "home": "Switzerland",
+      "away": "Bosnia and Herzegovina",
+      "home_win": 64.1,
+      "draw": 24.1,
+      "away_win": 11.8
+    },
+    {
+      "group": "B",
+      "date": "2026-06-18",
+      "home": "Canada",
+      "away": "Qatar",
+      "home_win": 72.7,
+      "draw": 15.9,
+      "away_win": 11.4
+    },
+    {
+      "group": "B",
+      "date": "2026-06-24",
+      "home": "Canada",
+      "away": "Switzerland",
+      "home_win": 36.3,
+      "draw": 22.3,
+      "away_win": 41.4
+    },
+    {
+      "group": "B",
+      "date": "2026-06-24",
+      "home": "Bosnia and Herzegovina",
+      "away": "Qatar",
+      "home_win": 56.1,
+      "draw": 23.0,
+      "away_win": 20.8
+    },
+    {
+      "group": "C",
+      "date": "2026-06-13",
+      "home": "Brazil",
+      "away": "Morocco",
+      "home_win": 49.1,
+      "draw": 25.6,
+      "away_win": 25.4
+    },
+    {
+      "group": "C",
+      "date": "2026-06-13",
+      "home": "Haiti",
+      "away": "Scotland",
+      "home_win": 13.9,
+      "draw": 29.2,
+      "away_win": 56.9
+    },
+    {
+      "group": "C",
+      "date": "2026-06-19",
+      "home": "Scotland",
+      "away": "Morocco",
+      "home_win": 14.3,
+      "draw": 20.6,
+      "away_win": 65.1
+    },
+    {
+      "group": "C",
+      "date": "2026-06-19",
+      "home": "Brazil",
+      "away": "Haiti",
+      "home_win": 81.0,
+      "draw": 14.0,
+      "away_win": 4.9
+    },
+    {
+      "group": "C",
+      "date": "2026-06-24",
+      "home": "Scotland",
+      "away": "Brazil",
+      "home_win": 11.1,
+      "draw": 27.7,
+      "away_win": 61.2
+    },
+    {
+      "group": "C",
+      "date": "2026-06-24",
+      "home": "Morocco",
+      "away": "Haiti",
+      "home_win": 76.4,
+      "draw": 15.1,
+      "away_win": 8.5
+    },
+    {
+      "group": "D",
+      "date": "2026-06-12",
+      "home": "United States",
+      "away": "Paraguay",
+      "home_win": 22.1,
+      "draw": 27.5,
+      "away_win": 50.4
+    },
+    {
+      "group": "D",
+      "date": "2026-06-13",
+      "home": "Australia",
+      "away": "Turkey",
+      "home_win": 26.1,
+      "draw": 23.1,
+      "away_win": 50.8
+    },
+    {
+      "group": "D",
+      "date": "2026-06-19",
+      "home": "United States",
+      "away": "Australia",
+      "home_win": 30.6,
+      "draw": 20.0,
+      "away_win": 49.5
+    },
+    {
+      "group": "D",
+      "date": "2026-06-19",
+      "home": "Turkey",
+      "away": "Paraguay",
+      "home_win": 49.2,
+      "draw": 23.0,
+      "away_win": 27.9
+    },
+    {
+      "group": "D",
+      "date": "2026-06-25",
+      "home": "United States",
+      "away": "Turkey",
+      "home_win": 15.4,
+      "draw": 24.5,
+      "away_win": 60.1
+    },
+    {
+      "group": "D",
+      "date": "2026-06-25",
+      "home": "Paraguay",
+      "away": "Australia",
+      "home_win": 33.3,
+      "draw": 29.6,
+      "away_win": 37.1
+    },
+    {
+      "group": "E",
+      "date": "2026-06-14",
+      "home": "Germany",
+      "away": "Cura\u00e7ao",
+      "home_win": 83.6,
+      "draw": 13.5,
+      "away_win": 2.8
+    },
+    {
+      "group": "E",
+      "date": "2026-06-14",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "home_win": 26.2,
+      "draw": 19.3,
+      "away_win": 54.5
+    },
+    {
+      "group": "E",
+      "date": "2026-06-20",
+      "home": "Germany",
+      "away": "Ivory Coast",
+      "home_win": 60.6,
+      "draw": 25.4,
+      "away_win": 14.0
+    },
+    {
+      "group": "E",
+      "date": "2026-06-20",
+      "home": "Ecuador",
+      "away": "Cura\u00e7ao",
+      "home_win": 83.0,
+      "draw": 10.0,
+      "away_win": 7.0
+    },
+    {
+      "group": "E",
+      "date": "2026-06-25",
+      "home": "Cura\u00e7ao",
+      "away": "Ivory Coast",
+      "home_win": 11.4,
+      "draw": 17.0,
+      "away_win": 71.6
+    },
+    {
+      "group": "E",
+      "date": "2026-06-25",
+      "home": "Ecuador",
+      "away": "Germany",
+      "home_win": 21.1,
+      "draw": 23.9,
+      "away_win": 55.0
+    },
+    {
+      "group": "F",
+      "date": "2026-06-14",
+      "home": "Netherlands",
+      "away": "Japan",
+      "home_win": 46.3,
+      "draw": 17.1,
+      "away_win": 36.5
+    },
+    {
+      "group": "F",
+      "date": "2026-06-14",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "home_win": 56.1,
+      "draw": 19.7,
+      "away_win": 24.1
+    },
+    {
+      "group": "F",
+      "date": "2026-06-20",
+      "home": "Netherlands",
+      "away": "Sweden",
+      "home_win": 52.5,
+      "draw": 34.4,
+      "away_win": 13.1
+    },
+    {
+      "group": "F",
+      "date": "2026-06-20",
+      "home": "Tunisia",
+      "away": "Japan",
+      "home_win": 15.3,
+      "draw": 16.5,
+      "away_win": 68.2
+    },
+    {
+      "group": "F",
+      "date": "2026-06-25",
+      "home": "Japan",
+      "away": "Sweden",
+      "home_win": 57.5,
+      "draw": 18.8,
+      "away_win": 23.7
+    },
+    {
+      "group": "F",
+      "date": "2026-06-25",
+      "home": "Tunisia",
+      "away": "Netherlands",
+      "home_win": 11.4,
+      "draw": 21.0,
+      "away_win": 67.6
+    },
+    {
+      "group": "G",
+      "date": "2026-06-15",
+      "home": "Belgium",
+      "away": "Egypt",
+      "home_win": 57.4,
+      "draw": 14.3,
+      "away_win": 28.3
+    },
+    {
+      "group": "G",
+      "date": "2026-06-15",
+      "home": "Iran",
+      "away": "New Zealand",
+      "home_win": 61.7,
+      "draw": 25.1,
+      "away_win": 13.2
+    },
+    {
+      "group": "G",
+      "date": "2026-06-21",
+      "home": "Belgium",
+      "away": "Iran",
+      "home_win": 49.8,
+      "draw": 27.4,
+      "away_win": 22.8
+    },
+    {
+      "group": "G",
+      "date": "2026-06-21",
+      "home": "New Zealand",
+      "away": "Egypt",
+      "home_win": 19.0,
+      "draw": 31.6,
+      "away_win": 49.4
+    },
+    {
+      "group": "G",
+      "date": "2026-06-26",
+      "home": "Egypt",
+      "away": "Iran",
+      "home_win": 31.6,
+      "draw": 31.7,
+      "away_win": 36.8
+    },
+    {
+      "group": "G",
+      "date": "2026-06-26",
+      "home": "New Zealand",
+      "away": "Belgium",
+      "home_win": 8.6,
+      "draw": 16.2,
+      "away_win": 75.2
+    },
+    {
+      "group": "H",
+      "date": "2026-06-15",
+      "home": "Spain",
+      "away": "Cape Verde",
+      "home_win": 89.1,
+      "draw": 5.4,
+      "away_win": 5.5
+    },
+    {
+      "group": "H",
+      "date": "2026-06-15",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "home_win": 14.9,
+      "draw": 22.9,
+      "away_win": 62.2
+    },
+    {
+      "group": "H",
+      "date": "2026-06-21",
+      "home": "Spain",
+      "away": "Saudi Arabia",
+      "home_win": 81.3,
+      "draw": 13.9,
+      "away_win": 4.8
+    },
+    {
+      "group": "H",
+      "date": "2026-06-21",
+      "home": "Uruguay",
+      "away": "Cape Verde",
+      "home_win": 57.3,
+      "draw": 31.6,
+      "away_win": 11.1
+    },
+    {
+      "group": "H",
+      "date": "2026-06-26",
+      "home": "Cape Verde",
+      "away": "Saudi Arabia",
+      "home_win": 26.8,
+      "draw": 34.1,
+      "away_win": 39.2
+    },
+    {
+      "group": "H",
+      "date": "2026-06-26",
+      "home": "Uruguay",
+      "away": "Spain",
+      "home_win": 15.6,
+      "draw": 19.3,
+      "away_win": 65.1
+    },
+    {
+      "group": "I",
+      "date": "2026-06-16",
+      "home": "France",
+      "away": "Senegal",
+      "home_win": 58.8,
+      "draw": 25.2,
+      "away_win": 16.0
+    },
+    {
+      "group": "I",
+      "date": "2026-06-16",
+      "home": "Iraq",
+      "away": "Norway",
+      "home_win": 15.4,
+      "draw": 23.9,
+      "away_win": 60.7
+    },
+    {
+      "group": "I",
+      "date": "2026-06-22",
+      "home": "France",
+      "away": "Iraq",
+      "home_win": 74.5,
+      "draw": 18.3,
+      "away_win": 7.1
+    },
+    {
+      "group": "I",
+      "date": "2026-06-22",
+      "home": "Norway",
+      "away": "Senegal",
+      "home_win": 31.5,
+      "draw": 26.7,
+      "away_win": 41.8
+    },
+    {
+      "group": "I",
+      "date": "2026-06-26",
+      "home": "Norway",
+      "away": "France",
+      "home_win": 16.8,
+      "draw": 20.9,
+      "away_win": 62.3
+    },
+    {
+      "group": "I",
+      "date": "2026-06-26",
+      "home": "Senegal",
+      "away": "Iraq",
+      "home_win": 64.0,
+      "draw": 25.0,
+      "away_win": 10.9
+    },
+    {
+      "group": "J",
+      "date": "2026-06-16",
+      "home": "Argentina",
+      "away": "Algeria",
+      "home_win": 75.3,
+      "draw": 16.2,
+      "away_win": 8.5
+    },
+    {
+      "group": "J",
+      "date": "2026-06-16",
+      "home": "Austria",
+      "away": "Jordan",
+      "home_win": 63.7,
+      "draw": 20.2,
+      "away_win": 16.2
+    },
+    {
+      "group": "J",
+      "date": "2026-06-22",
+      "home": "Argentina",
+      "away": "Austria",
+      "home_win": 64.8,
+      "draw": 17.5,
+      "away_win": 17.7
+    },
+    {
+      "group": "J",
+      "date": "2026-06-22",
+      "home": "Jordan",
+      "away": "Algeria",
+      "home_win": 16.9,
+      "draw": 24.1,
+      "away_win": 59.0
+    },
+    {
+      "group": "J",
+      "date": "2026-06-27",
+      "home": "Algeria",
+      "away": "Austria",
+      "home_win": 31.6,
+      "draw": 23.5,
+      "away_win": 44.9
+    },
+    {
+      "group": "J",
+      "date": "2026-06-27",
+      "home": "Jordan",
+      "away": "Argentina",
+      "home_win": 4.4,
+      "draw": 7.6,
+      "away_win": 88.0
+    },
+    {
+      "group": "K",
+      "date": "2026-06-17",
+      "home": "Portugal",
+      "away": "DR Congo",
+      "home_win": 64.5,
+      "draw": 28.8,
+      "away_win": 6.7
+    },
+    {
+      "group": "K",
+      "date": "2026-06-17",
+      "home": "Uzbekistan",
+      "away": "Colombia",
+      "home_win": 13.7,
+      "draw": 36.8,
+      "away_win": 49.5
+    },
+    {
+      "group": "K",
+      "date": "2026-06-23",
+      "home": "Portugal",
+      "away": "Uzbekistan",
+      "home_win": 61.4,
+      "draw": 29.4,
+      "away_win": 9.2
+    },
+    {
+      "group": "K",
+      "date": "2026-06-23",
+      "home": "Colombia",
+      "away": "DR Congo",
+      "home_win": 65.7,
+      "draw": 21.0,
+      "away_win": 13.3
+    },
+    {
+      "group": "K",
+      "date": "2026-06-27",
+      "home": "Colombia",
+      "away": "Portugal",
+      "home_win": 28.7,
+      "draw": 33.2,
+      "away_win": 38.1
+    },
+    {
+      "group": "K",
+      "date": "2026-06-27",
+      "home": "DR Congo",
+      "away": "Uzbekistan",
+      "home_win": 33.5,
+      "draw": 26.5,
+      "away_win": 40.0
+    },
+    {
+      "group": "L",
+      "date": "2026-06-17",
+      "home": "England",
+      "away": "Croatia",
+      "home_win": 47.9,
+      "draw": 19.3,
+      "away_win": 32.9
+    },
+    {
+      "group": "L",
+      "date": "2026-06-17",
+      "home": "Ghana",
+      "away": "Panama",
+      "home_win": 25.6,
+      "draw": 26.0,
+      "away_win": 48.3
+    },
+    {
+      "group": "L",
+      "date": "2026-06-23",
+      "home": "England",
+      "away": "Ghana",
+      "home_win": 84.2,
+      "draw": 9.5,
+      "away_win": 6.3
+    },
+    {
+      "group": "L",
+      "date": "2026-06-23",
+      "home": "Panama",
+      "away": "Croatia",
+      "home_win": 11.2,
+      "draw": 19.4,
+      "away_win": 69.4
+    },
+    {
+      "group": "L",
+      "date": "2026-06-27",
+      "home": "Panama",
+      "away": "England",
+      "home_win": 9.0,
+      "draw": 20.6,
+      "away_win": 70.4
+    },
+    {
+      "group": "L",
+      "date": "2026-06-27",
+      "home": "Croatia",
+      "away": "Ghana",
+      "home_win": 70.4,
+      "draw": 13.9,
+      "away_win": 15.7
+    }
+  ]
+}

@@ -9,6 +9,47 @@ XGBoost-based machine learning model that predicts match outcomes (Win/Draw/Loss
 3. Simulates the full tournament bracket 10,000 times to produce win probabilities
 4. Updates live after each match day — suspensions, injuries, and results feed back into re-predictions
 
+## Getting Started
+
+### 1. Clone and set up the environment
+```bash
+git clone <your-repo-url>
+cd 2026-world-cup-predictor
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+> **Note (macOS):** XGBoost needs the OpenMP runtime. If you hit a `libomp` error, run `brew install libomp`.
+
+### 2. Set up the Kaggle API
+Create a free token at [kaggle.com](https://kaggle.com) → Settings → API → **Create New Token**, then save it so the CLI can read it:
+```bash
+mkdir -p ~/.kaggle && echo "<your-token>" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+```
+
+### 3. Download the datasets
+```bash
+kaggle datasets download -d martj42/international-football-results-from-1872-to-2017 -p data/raw --unzip
+kaggle datasets download -d cashncarry/fifaworldranking -p data/raw --unzip
+kaggle datasets download -d justdhia/ea-sports-fc-26-player-ratings -p data/raw --unzip
+kaggle datasets download -d hubertsidorowicz/football-players-stats-2025-2026 -p data/raw --unzip
+```
+
+### 4. Run the pipeline
+```bash
+python src/features.py    # cleans data + builds the feature matrix (~2 min)
+python src/model.py       # trains and saves the XGBoost model (~6 min)
+python src/simulate.py    # simulates the tournament 50,000 times and prints predictions
+```
+
+Predictions are printed to the terminal and saved to `results/wc2026_predictions.csv`.
+
+To explore how different uncertainty levels change the winners:
+```bash
+PYTHONPATH=src python src/experiment_temperature.py
+```
+
 ## Data Sources
 
 | Dataset | Source | What it provides |

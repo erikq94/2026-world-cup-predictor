@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 World Cup Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Scroll-progress soccer ball that rolls + spins as you scroll -->
+  <div id="scrollBall" aria-hidden="true">⚽</div>
+
+  <!-- HERO (intro only — no champion spoiler) -->
+  <header class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner reveal">
+      <p class="kicker">Machine Learning Forecast · by Erik Quiroz</p>
+      <h1>I Built a <span class="accent">World Cup Predictor</span></h1>
+      <p class="sub">I trained an XGBoost model on 30,000+ international matches plus
+        player stats, then ran the entire 2026 World Cup through 50,000 Monte Carlo
+        simulations to see who lifts the trophy. Scroll through — from the group stage
+        all the way to my predicted champion.</p>
+      <p class="disclaimer">Please, feel free to bet your life savings on these results.
+        You'll most certainly lose every penny — but feel free to buy me a beer if you do
+        bet on these games and happen to win. Cheers 🍺</p>
+      <p class="scroll-hint">scroll to follow the road to the final ↓</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1) GROUP STAGE (first) -->
+    <section class="section" id="groupsSection">
+      <div class="section-head reveal">
+        <h2>Group Stage Predictions</h2>
+        <p>Win / Draw / Loss probability for all 72 group-stage matches.</p>
+        <div class="legend">
+          <span><i class="sw w"></i> Home win</span>
+          <span><i class="sw d"></i> Draw</span>
+          <span><i class="sw l"></i> Away win</span>
+        </div>
+      </div>
+      <div class="groups" id="groups"></div>
+    </section>
+
+    <!-- 2) ROAD / REACH TABLE -->
+    <section class="section" id="road">
+      <div class="section-head reveal">
+        <h2>The Road to the Final</h2>
+        <p>How far each contender is expected to go — probability of reaching each round.</p>
+      </div>
+      <div class="reach-table-wrap reveal">
+        <table class="reach-table" id="reachTable"></table>
+      </div>
+    </section>
+
+    <!-- 3) TITLE RACE -->
+    <section class="section" id="titleRace">
+      <div class="section-head reveal">
+        <h2>The Title Race</h2>
+        <p>Probability each team lifts the trophy, across 50,000 simulated tournaments.</p>
+      </div>
+      <div class="bars" id="titleBars"></div>
+    </section>
+
+    <!-- 4) PREDICTED BRACKET -->
+    <section class="section" id="bracketSection">
+      <div class="section-head reveal">
+        <h2>Predicted Path</h2>
+        <p><b>Illustrative</b> — favorite advances each round, with each team's win
+          probability for that match. The official knockout bracket isn't set until the
+          group stage ends (the eight third-place qualifiers decide the slots), so this
+          uses a simplified seeding. The probability table above is the robust picture.</p>
+      </div>
+      <div class="bracket" id="bracket"></div>
+    </section>
+
+    <!-- 5) CHAMPION REVEAL (last) -->
+    <section class="section champion-reveal" id="championReveal">
+      <div class="reveal" id="championCard"><!-- filled by JS --></div>
+      <div class="cheers" id="cheers" aria-hidden="true">
+        <span class="beer left">🍺</span>
+        <span class="beer right">🍺</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p id="footerMeta"></p>
+    <p class="muted">Predictions are probabilistic and for educational purposes. Built as an
+      end-to-end ML project — see the repository for the full methodology and findings.</p>
+  </footer>
+
+  <!-- Team stats popup (filled by JS) -->
+  <div class="modal-overlay" id="teamModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
