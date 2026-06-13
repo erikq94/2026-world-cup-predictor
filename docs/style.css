@@ -263,10 +263,63 @@ h1, h2, h3, .num { font-family: 'Oswald', sans-serif; letter-spacing: .5px; }
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
 .reveal.visible { opacity: 1; transform: none; }
 
+/* ---------- Scoreboard (predictions vs reality) ---------- */
+.scoreboard { max-width: 760px; margin: 0 auto; }
+.sb-empty { text-align: center; color: var(--muted); }
+.sb-summary { text-align: center; margin-bottom: 1.8rem; }
+.sb-stat { font-family: 'Oswald'; font-size: 3.4rem; font-weight: 700; color: var(--neon); line-height: 1; }
+.sb-stat-label { color: var(--muted); text-transform: uppercase; letter-spacing: 2px; font-size: .75rem; margin-top: .3rem; }
+.sb-list { display: flex; flex-direction: column; gap: .6rem; }
+.sb-row { display: grid; grid-template-columns: 48px 1fr 28px; align-items: center; gap: .8rem; background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; padding: .6rem .8rem; }
+.sb-row.ok { border-left: 3px solid var(--neon); }
+.sb-row.miss { border-left: 3px solid #c2566b; }
+.sb-date { color: var(--muted); font-size: .75rem; font-family: 'Oswald'; }
+.sb-main { min-width: 0; }
+.sb-score { display: flex; align-items: center; gap: .4rem; font-size: .92rem; font-weight: 600; flex-wrap: wrap; }
+.sb-score img { width: 22px; border-radius: 3px; }
+.sb-score .sc { color: var(--neon); font-family: 'Oswald'; margin: 0 .3rem; }
+.sb-pick { color: var(--muted); font-size: .78rem; margin-top: .2rem; }
+.sb-mark { text-align: center; font-size: 1.15rem; font-weight: 700; }
+.sb-mark.ok { color: var(--neon); }
+.sb-mark.miss { color: #c2566b; }
+
+/* ---------- Schedule (all times Pacific) ---------- */
+.schedule { max-width: 760px; margin: 0 auto; }
+.sch-scroll { max-height: 560px; overflow-y: auto; border: 1px solid var(--line); border-radius: 14px; padding: .4rem; -webkit-overflow-scrolling: touch; }
+.sch-day { margin-bottom: .4rem; }
+.sch-daylabel { position: sticky; top: 0; background: var(--panel); color: var(--neon); font-family: 'Oswald'; letter-spacing: 1px; font-size: .8rem; text-transform: uppercase; padding: .55rem .8rem; border-radius: 8px; z-index: 1; }
+.sch-row { display: grid; grid-template-columns: 78px 1fr; align-items: center; gap: .6rem; padding: .5rem .8rem; border-bottom: 1px solid rgba(31,64,48,.4); }
+.sch-row:last-child { border-bottom: none; }
+.sch-row.past { opacity: .42; }
+.sch-time { font-family: 'Oswald'; color: var(--text); font-size: .82rem; text-align: right; }
+.sch-match { display: flex; align-items: center; gap: .4rem; font-size: .88rem; flex-wrap: wrap; }
+.sch-match img { width: 20px; border-radius: 3px; }
+.sch-match .sch-v { color: var(--muted); font-size: .75rem; margin: 0 .15rem; }
+
+/* tracker rows: time | match (+score) | pick or ✓/✗ */
+.trk-row { display: grid; grid-template-columns: 68px 1fr auto; align-items: center; gap: .6rem; padding: .5rem .8rem; border-bottom: 1px solid rgba(31,64,48,.4); }
+.trk-row:last-child { border-bottom: none; }
+.trk-row.ok { border-left: 3px solid var(--neon); }
+.trk-row.miss { border-left: 3px solid #c2566b; }
+.trk-row.upcoming.live { opacity: .6; }
+.trk-time { font-family: 'Oswald'; color: var(--text); font-size: .8rem; text-align: right; }
+.trk-match { display: flex; align-items: center; gap: .4rem; font-size: .86rem; flex-wrap: wrap; min-width: 0; }
+.trk-match img { width: 20px; border-radius: 3px; }
+.trk-match .sc { color: var(--neon); font-family: 'Oswald'; margin: 0 .3rem; }
+.trk-match .trk-v { color: var(--muted); font-size: .75rem; margin: 0 .15rem; }
+.trk-mark { font-size: 1.1rem; font-weight: 700; text-align: center; }
+.trk-mark.ok { color: var(--neon); }
+.trk-mark.miss { color: #c2566b; }
+.trk-pick { color: var(--muted); font-size: .74rem; text-align: right; white-space: nowrap; }
+
 /* smooth momentum scrolling for the horizontally-scrollable areas on iOS */
 .bracket, .reach-table-wrap { -webkit-overflow-scrolling: touch; }
 
 @media (max-width: 600px) {
+  .sb-stat { font-size: 2.7rem; }
+  .trk-row { grid-template-columns: 54px 1fr auto; gap: .4rem; }
+  .trk-match { font-size: .8rem; }
+  .trk-pick { font-size: .66rem; }
   .bar-row { grid-template-columns: 22px 26px 1fr 46px; gap: .5rem; }
   .section { padding: 3.6rem 1rem; }
   .hero { min-height: 92vh; }

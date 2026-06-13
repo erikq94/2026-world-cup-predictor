@@ -33,6 +33,8 @@ const ROUND_LABEL = {
 
 let DATA = null;
 let TITLE_MAX = 0;
+let RESULTS = [];
+let SCHEDULE = [];
 
 init();
 
@@ -51,6 +53,11 @@ async function init() {
        </div>`;
     return;
   }
+  // These two are optional — the page still works if they're missing/empty.
+  try { RESULTS = await (await fetch("data/results.json")).json(); } catch (e) { RESULTS = []; }
+  try { SCHEDULE = await (await fetch("data/schedule.json")).json(); } catch (e) { SCHEDULE = []; }
+
+  renderTracker();
   renderChampion();
   renderTitleRace();
   renderReachTable();
@@ -60,6 +67,87 @@ async function init() {
   setupReveal();
   setupScrollBall();
   setupModal();
+}
+
+/* ---------- Tracker: schedule + results + our picks, all in one ---------- */
+function renderTracker() {
+  const el = document.getElementById("tracker");
+  if (!SCHEDULE.length) { el.innerHTML = ""; return; }
+  const now = new Date();
+  const LA = "America/Los_Angeles";
+
+  // index results + predictions by "home|away"
+  const resultOf = {};
+  RESULTS.forEach(r => { resultOf[`${r.home}|${r.away}`] = r; });
+  const predOf = {};
+  DATA.group_predictions.forEach(p => { predOf[`${p.home}|${p.away}`] = p; });
+
+  const pickFor = (m) => {
+    const p = predOf[`${m.home}|${m.away}`];
+    if (!p) return null;
+    const opts = [["home", p.home_win, m.home], ["draw", p.draw, "Draw"], ["away", p.away_win, m.away]];
+    opts.sort((a, b) => b[1] - a[1]);
+    return { side: opts[0][0], pct: opts[0][1], label: opts[0][2] };
+  };
+
+  // running accuracy (only over played matches we have a prediction for)
+  let correct = 0, played = 0;
+  RESULTS.forEach(r => {
+    const pick = pickFor(r);
+    if (!pick) return;
+    played++;
+    const actual = r.hs > r.as ? "home" : r.hs < r.as ? "away" : "draw";
+    if (pick.side === actual) correct++;
+  });
+  const pct = played ? Math.round(correct / played * 100) : 0;
+  const summary = played
+    ? `<div class="sb-summary"><div class="sb-stat">${correct} / ${played}</div>
+         <div class="sb-stat-label">correct so far · ${pct}% hit rate</div></div>`
+    : `<div class="sb-summary"><div class="sb-stat-label">no matches played yet — check back soon ⚽</div></div>`;
+
+  // group every match by its Pacific calendar date
+  const groups = {};
+  SCHEDULE.forEach(m => {
+    const dt = new Date(m.kickoff);
+    const day = dt.toLocaleDateString("en-CA", { timeZone: LA });
+    (groups[day] ??= []).push({ ...m, dt });
+  });
+
+  const days = Object.keys(groups).sort().map(day => {
+    const label = new Date(day + "T12:00:00").toLocaleDateString("en-US",
+      { weekday: "long", month: "short", day: "numeric" });
+    const rows = groups[day].sort((a, b) => a.dt - b.dt).map(m => {
+      const time = m.dt.toLocaleTimeString("en-US", { timeZone: LA, hour: "numeric", minute: "2-digit" });
+      const res = resultOf[`${m.home}|${m.away}`];
+      const pick = pickFor(m);
+
+      if (res) {   // played: show score + whether our pick was right
+        const actual = res.hs > res.as ? "home" : res.hs < res.as ? "away" : "draw";
+        const ok = pick && pick.side === actual;
+        return `
+          <div class="trk-row ${ok ? "ok" : "miss"}">
+            <span class="trk-time">${time}</span>
+            <span class="trk-match">${flag(m.home, 40)} <span>${m.home}</span>
+              <span class="sc">${res.hs}–${res.as}</span>
+              <span>${m.away}</span> ${flag(m.away, 40)}</span>
+            <span class="trk-mark ${ok ? "ok" : "miss"}" title="picked ${pick ? pick.label : "?"}">${ok ? "✓" : "✗"}</span>
+          </div>`;
+      }
+      // upcoming (or kicked-off, result not entered yet): show time + our pick
+      const live = m.dt < now;
+      return `
+        <div class="trk-row upcoming ${live ? "live" : ""}">
+          <span class="trk-time">${live ? "TBD" : time}</span>
+          <span class="trk-match">${flag(m.home, 40)} <span>${m.home}</span>
+            <span class="trk-v">v</span>
+            <span>${m.away}</span> ${flag(m.away, 40)}</span>
+          <span class="trk-pick">${pick ? `pick: ${pick.label} ${fmt(pick.pct)}%` : ""}</span>
+        </div>`;
+    }).join("");
+    return `<div class="sch-day"><div class="sch-daylabel">${label}</div>${rows}</div>`;
+  }).join("");
+
+  el.innerHTML = summary + `<div class="sch-scroll">${days}</div>`;
 }
 
 /* Click any flag anywhere -> team stats popup */
