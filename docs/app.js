@@ -36,12 +36,16 @@ let TITLE_MAX = 0;
 let RESULTS = [];
 let SCHEDULE = [];
 
+// Always pull the freshest data: a timestamp + no-store means browsers and CDNs
+// never serve a stale cached copy, so the live tracker is actually live for everyone.
+const fetchFresh = (path) =>
+  fetch(`${path}?t=${Date.now()}`, { cache: "no-store" }).then(r => r.json());
+
 init();
 
 async function init() {
   try {
-    const res = await fetch("data/snapshot.json");
-    DATA = await res.json();
+    DATA = await fetchFresh("data/snapshot.json");
   } catch (e) {
     document.body.innerHTML =
       `<div style="max-width:620px;margin:18vh auto;text-align:center;font-family:sans-serif;color:#e8f5ee;padding:1.5rem">
@@ -54,8 +58,8 @@ async function init() {
     return;
   }
   // These two are optional — the page still works if they're missing/empty.
-  try { RESULTS = await (await fetch("data/results.json")).json(); } catch (e) { RESULTS = []; }
-  try { SCHEDULE = await (await fetch("data/schedule.json")).json(); } catch (e) { SCHEDULE = []; }
+  try { RESULTS = await fetchFresh("data/results.json"); } catch (e) { RESULTS = []; }
+  try { SCHEDULE = await fetchFresh("data/schedule.json"); } catch (e) { SCHEDULE = []; }
 
   renderTracker();
   renderChampion();
