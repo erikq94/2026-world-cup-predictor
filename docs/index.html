@@ -95,15 +95,19 @@
       </div>
     </section>
 
-    <!-- 6) LIVE KNOCKOUT PREDICTIONS (extends each round) -->
+    <!-- 6) UPDATED (FORM-AWARE) KNOCKOUT BRACKET + round-by-round tracker -->
     <section class="section" id="knockoutSection">
       <div class="section-head reveal">
         <span class="live-badge">● LIVE</span>
-        <h2>Live Knockout Predictions</h2>
-        <p>Everything above was the model's <b>pre-tournament</b> forecast. Below are its
-          <b>form-aware</b> picks for the knockout rounds — re-run with how every team has
-          actually played in this World Cup — shown against the real results. Updated each round.</p>
+        <h2>Updated Predictions — Knockout Bracket</h2>
+        <p class="updated-stamp" id="updatedStamp"></p>
+        <p>Now that the group stage is done, I re-ran the model with <b>form-aware</b> ratings
+          (folding in how every team has actually played) on the <b>real</b> bracket. Played
+          games show the actual winner; upcoming games show the model's pick. Everything in my
+          original pre-tournament predictions above is untouched.</p>
       </div>
+      <div class="bracket updated-bracket reveal" id="knockoutBracket"></div>
+      <h3 class="ko-list-title reveal">Round by round — model pick vs. result</h3>
       <div class="knockout reveal" id="knockout"></div>
     </section>
   </main>

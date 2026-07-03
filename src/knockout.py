@@ -9,6 +9,7 @@ removed and win/win is renormalized.
 Update KNOCKOUT below as each round's matchups are confirmed, then re-run.
 """
 import json
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
@@ -38,6 +39,57 @@ def wc_results_as_matches():
             rows.append({"date": pd.Timestamp("2026-06-30"), "home_team": k["home"],
                          "away_team": k["away"], "result": res, "augmented": False})
     return pd.DataFrame(rows)
+
+
+# The actual bracket in tree order: consecutive pairs of R32 matches feed each
+# R16 slot, and so on up to the final (from the official 2026 bracket).
+R32_TREE_ORDER = [
+    ("Canada", "South Africa"), ("Netherlands", "Morocco"),
+    ("Germany", "Paraguay"), ("France", "Sweden"),
+    ("Brazil", "Japan"), ("Ivory Coast", "Norway"),
+    ("Mexico", "Ecuador"), ("England", "DR Congo"),
+    ("Portugal", "Croatia"), ("Spain", "Austria"),
+    ("United States", "Bosnia and Herzegovina"), ("Belgium", "Senegal"),
+    ("Argentina", "Cape Verde"), ("Australia", "Egypt"),
+    ("Switzerland", "Algeria"), ("Colombia", "Ghana"),
+]
+
+
+def load_actual_winners():
+    """Every played knockout matchup (both orientations) -> actual winner."""
+    actual = {}
+    ko_path = DATA / "knockout_results.json"
+    if ko_path.exists():
+        for k in json.load(open(ko_path)):
+            actual[(k["home"], k["away"])] = k["winner"]
+            actual[(k["away"], k["home"])] = k["winner"]
+    return actual
+
+
+def build_predicted_bracket(prob_cache, actual):
+    """Walk the real bracket: use the actual winner where a game is played, else
+    the form-aware model's favorite. Returns rounds of matches + the champion."""
+    round_names = ["Round of 32", "Round of 16", "Quarterfinal", "Semifinal", "Final"]
+    pairs = list(R32_TREE_ORDER)
+    rounds = []
+    for rname in round_names:
+        matches, winners = [], []
+        for a, b in pairs:
+            hw, aw = _knockout_probs(prob_cache, a, b)
+            hw, aw = float(hw), float(aw)
+            act = actual.get((a, b))
+            if act:
+                winner, win_pct, played = act, round((hw if act == a else aw) * 100, 1), True
+            else:
+                winner = a if hw >= aw else b
+                win_pct, played = round(max(hw, aw) * 100, 1), False
+            matches.append({"home": a, "away": b, "winner": winner,
+                            "win_pct": win_pct, "played": played})
+            winners.append(winner)
+        rounds.append({"round": rname, "matches": matches})
+        if len(winners) > 1:
+            pairs = [(winners[i], winners[i + 1]) for i in range(0, len(winners), 2)]
+    return {"rounds": rounds, "champion": rounds[-1]["matches"][0]["winner"]}
 
 # Actual matchups per round — extend as each round is set.
 KNOCKOUT = [
@@ -86,10 +138,20 @@ def main():
         })
         print(f"  {a} vs {b:<24} -> {pick} ({pct}%)")
 
-    Path("docs/data").mkdir(parents=True, exist_ok=True)
-    with open("docs/data/knockout.json", "w") as f:
+    DATA.mkdir(parents=True, exist_ok=True)
+    with open(DATA / "knockout.json", "w") as f:
         json.dump(out, f, indent=2)
-    print(f"\nSaved {len(out)} predictions to docs/data/knockout.json")
+
+    # Full predicted bracket (real results + form-aware picks) -> updated champion
+    bracket = build_predicted_bracket(prob_cache, load_actual_winners())
+    bracket["updated"] = date.today().isoformat()
+    with open(DATA / "knockout_bracket.json", "w") as f:
+        json.dump(bracket, f, indent=2)
+
+    print("\n=== UPDATED PREDICTED BRACKET (form-aware, real results folded in) ===")
+    for rnd in bracket["rounds"]:
+        print(f"  {rnd['round']:<14}: {', '.join(m['winner'] for m in rnd['matches'])}")
+    print(f"  >>> UPDATED CHAMPION: {bracket['champion']} <<<")
 
 
 if __name__ == "__main__":

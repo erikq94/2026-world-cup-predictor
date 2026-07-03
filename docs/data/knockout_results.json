@@ -8,5 +8,7 @@
   {"home":"Mexico","away":"Ecuador","winner":"Mexico","score":"2–0"},
   {"home":"United States","away":"Bosnia and Herzegovina","winner":"United States","score":"2–0"},
   {"home":"Spain","away":"Austria","winner":"Spain","score":"3–0"},
-  {"home":"Belgium","away":"Senegal","winner":"Belgium","score":"3–2 (AET)"}
+  {"home":"Belgium","away":"Senegal","winner":"Belgium","score":"3–2 (AET)"},
+  {"home":"Portugal","away":"Croatia","winner":"Portugal","score":"2–1"},
+  {"home":"England","away":"DR Congo","winner":"England","score":"2–1"}
 ]

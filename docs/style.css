@@ -334,6 +334,15 @@ h1, h2, h3, .num { font-family: 'Oswald', sans-serif; letter-spacing: .5px; }
 .ko-mark.miss { color: #c2566b; }
 .ko-soon { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; }
 
+/* Updated knockout bracket */
+.updated-stamp { color: var(--gold); font-family: 'Oswald'; letter-spacing: 1px; text-transform: uppercase; font-size: .82rem; margin-bottom: .8rem; }
+.ko-list-title { max-width: 760px; margin: 2.6rem auto 1rem; color: var(--muted); font-size: .95rem; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+.match-card.played { border-color: rgba(43, 255, 136, .35); }
+.match-card.pred { border-style: dashed; }
+.ko-tag { display: block; font-size: .52rem; font-weight: 700; letter-spacing: 1px; padding: .2rem .55rem 0; text-align: right; }
+.ko-tag.result { color: var(--neon); }
+.ko-tag.pred { color: var(--muted); }
+
 /* smooth momentum scrolling for the horizontally-scrollable areas on iOS */
 .bracket, .reach-table-wrap { -webkit-overflow-scrolling: touch; }
 

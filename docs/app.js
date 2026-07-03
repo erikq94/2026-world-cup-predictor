@@ -37,6 +37,7 @@ let RESULTS = [];
 let SCHEDULE = [];
 let KNOCKOUT = [];
 let KO_RESULTS = [];
+let KO_BRACKET = null;
 
 // Always pull the freshest data: a timestamp + no-store means browsers and CDNs
 // never serve a stale cached copy, so the live tracker is actually live for everyone.
@@ -64,8 +65,10 @@ async function init() {
   try { SCHEDULE = await fetchFresh("data/schedule.json"); } catch (e) { SCHEDULE = []; }
   try { KNOCKOUT = await fetchFresh("data/knockout.json"); } catch (e) { KNOCKOUT = []; }
   try { KO_RESULTS = await fetchFresh("data/knockout_results.json"); } catch (e) { KO_RESULTS = []; }
+  try { KO_BRACKET = await fetchFresh("data/knockout_bracket.json"); } catch (e) { KO_BRACKET = null; }
 
   renderTracker();
+  renderUpdatedBracket();
   renderKnockout();
   renderChampion();
   renderTitleRace();
@@ -230,6 +233,50 @@ function setupScrollBall() {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
   onScroll();
+}
+
+/* ---------- Updated (form-aware) knockout bracket ---------- */
+function koMatchCard(m) {
+  const row = (team) => {
+    const win = team === m.winner;
+    return `<div class="bk-team ${win ? "win" : "lose"}">
+        ${flag(team, 40)} <span class="slot-team">${team}</span>
+        ${win && m.win_pct != null ? `<span class="slot-pct">${fmt(m.win_pct)}%</span>` : ""}
+      </div>`;
+  };
+  const tag = m.played
+    ? `<span class="ko-tag result">RESULT</span>`
+    : `<span class="ko-tag pred">MODEL PICK</span>`;
+  return `<div class="match-card ${m.played ? "played" : "pred"}">${tag}${row(m.home)}${row(m.away)}</div>`;
+}
+
+function renderUpdatedBracket() {
+  const el = document.getElementById("knockoutBracket");
+  if (!KO_BRACKET || !KO_BRACKET.rounds) { if (el) el.innerHTML = ""; return; }
+
+  const stamp = document.getElementById("updatedStamp");
+  if (stamp && KO_BRACKET.updated) {
+    const d = new Date(KO_BRACKET.updated + "T12:00:00")
+      .toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+    stamp.textContent = `Updated after the Group Stage · ${d}`;
+  }
+
+  const cols = KO_BRACKET.rounds.map(r => `
+    <div class="bk-round">
+      <div class="round-title">${r.round}</div>
+      <div class="bk-matches">${r.matches.map(koMatchCard).join("")}</div>
+    </div>`).join("");
+
+  const champ = KO_BRACKET.champion;
+  const champCol = `
+    <div class="bk-round champ-col">
+      <div class="round-title">Champion</div>
+      <div class="bk-matches">
+        <div class="slot champ">${flag(champ, 40)} <span class="slot-team">${champ}</span>
+          <span class="trophy">🏆</span></div>
+      </div>
+    </div>`;
+  el.innerHTML = cols + champCol;
 }
 
 /* ---------- Live knockout predictions (form-aware) vs results ---------- */
