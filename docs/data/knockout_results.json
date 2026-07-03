@@ -1,0 +1,12 @@
+[
+  {"home":"Canada","away":"South Africa","winner":"Canada","score":"1–0"},
+  {"home":"Brazil","away":"Japan","winner":"Brazil","score":"2–1"},
+  {"home":"Germany","away":"Paraguay","winner":"Paraguay","score":"1–1 (3–4 pens)"},
+  {"home":"Netherlands","away":"Morocco","winner":"Morocco","score":"1–1 (2–3 pens)"},
+  {"home":"Norway","away":"Ivory Coast","winner":"Norway","score":"2–1"},
+  {"home":"France","away":"Sweden","winner":"France","score":"3–0"},
+  {"home":"Mexico","away":"Ecuador","winner":"Mexico","score":"2–0"},
+  {"home":"United States","away":"Bosnia and Herzegovina","winner":"United States","score":"2–0"},
+  {"home":"Spain","away":"Austria","winner":"Spain","score":"3–0"},
+  {"home":"Belgium","away":"Senegal","winner":"Belgium","score":"3–2 (AET)"}
+]

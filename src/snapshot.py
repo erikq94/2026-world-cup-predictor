@@ -73,11 +73,19 @@ def _match_features(home, away, strengths, elo_dict, venue):
     }])
 
 
-def prepare():
-    """Load everything once: model, ELO, squad strengths, and the match cache."""
+def prepare(extra_matches=None):
+    """Load everything once: model, ELO, squad strengths, and the match cache.
+
+    extra_matches: optional DataFrame of additional real matches (e.g. the 2026 WC
+    results) to fold into the ELO history BEFORE computing ratings — this makes the
+    ELO 'form-aware'. Original (frozen) predictions call prepare() with no argument.
+    """
     print("Loading model + data...")
     model = joblib.load(MODELS_DIR / 'xgboost_model.pkl')
     results, wc_fixtures, _, players, _ = load_all()
+
+    if extra_matches is not None and len(extra_matches):
+        results = pd.concat([results, extra_matches], ignore_index=True)
 
     print("Computing ELO...")
     elo_hist = compute_elo(results)

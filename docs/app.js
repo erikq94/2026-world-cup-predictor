@@ -35,6 +35,8 @@ let DATA = null;
 let TITLE_MAX = 0;
 let RESULTS = [];
 let SCHEDULE = [];
+let KNOCKOUT = [];
+let KO_RESULTS = [];
 
 // Always pull the freshest data: a timestamp + no-store means browsers and CDNs
 // never serve a stale cached copy, so the live tracker is actually live for everyone.
@@ -60,8 +62,11 @@ async function init() {
   // These two are optional — the page still works if they're missing/empty.
   try { RESULTS = await fetchFresh("data/results.json"); } catch (e) { RESULTS = []; }
   try { SCHEDULE = await fetchFresh("data/schedule.json"); } catch (e) { SCHEDULE = []; }
+  try { KNOCKOUT = await fetchFresh("data/knockout.json"); } catch (e) { KNOCKOUT = []; }
+  try { KO_RESULTS = await fetchFresh("data/knockout_results.json"); } catch (e) { KO_RESULTS = []; }
 
   renderTracker();
+  renderKnockout();
   renderChampion();
   renderTitleRace();
   renderReachTable();
@@ -225,6 +230,57 @@ function setupScrollBall() {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
   onScroll();
+}
+
+/* ---------- Live knockout predictions (form-aware) vs results ---------- */
+function renderKnockout() {
+  const el = document.getElementById("knockout");
+  if (!KNOCKOUT.length) { el.innerHTML = ""; return; }
+
+  const resOf = {};
+  KO_RESULTS.forEach(r => { resOf[`${r.home}|${r.away}`] = r; });
+
+  let correct = 0, played = 0;
+  KNOCKOUT.forEach(m => {
+    const r = resOf[`${m.home}|${m.away}`];
+    if (r) { played++; if (r.winner === m.pick) correct++; }
+  });
+  const pct = played ? Math.round(correct / played * 100) : 0;
+  const summary = played
+    ? `<div class="sb-summary"><div class="sb-stat">${correct} / ${played}</div>
+         <div class="sb-stat-label">knockout picks correct · ${pct}%</div></div>` : "";
+
+  const rounds = {};
+  KNOCKOUT.forEach(m => { (rounds[m.round] ??= []).push(m); });
+  const order = ["Round of 32", "Round of 16", "Quarterfinal", "Semifinal", "Final"];
+
+  const html = order.filter(r => rounds[r]).map(rname => {
+    const rows = rounds[rname].map(m => {
+      const r = resOf[`${m.home}|${m.away}`];
+      const isPlayed = !!r;
+      const ok = isPlayed && r.winner === m.pick;
+      const cls = isPlayed ? (ok ? "ok" : "miss") : "upcoming";
+      const mark = isPlayed
+        ? `<span class="ko-mark ${ok ? "ok" : "miss"}">${ok ? "✓" : "✗"}</span>`
+        : `<span class="ko-soon">upcoming</span>`;
+      const result = isPlayed
+        ? `<div class="ko-result"><b>${r.winner}</b> won ${r.score}</div>` : "";
+      return `
+        <div class="ko-row ${cls}">
+          <div class="ko-main">
+            <div class="ko-match">${flag(m.home, 40)} <span>${m.home}</span>
+              <span class="ko-v">v</span>
+              <span>${m.away}</span> ${flag(m.away, 40)}</div>
+            <div class="ko-pick">Model picks <b>${m.pick}</b> (${fmt(m.pick_pct)}%)</div>
+            ${result}
+          </div>
+          ${mark}
+        </div>`;
+    }).join("");
+    return `<div class="ko-round"><div class="ko-round-title">${rname}</div>${rows}</div>`;
+  }).join("");
+
+  el.innerHTML = summary + html;
 }
 
 function renderChampion() {
