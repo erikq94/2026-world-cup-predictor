@@ -69,7 +69,6 @@ async function init() {
 
   renderTracker();
   renderUpdatedBracket();
-  renderKnockout();
   renderChampion();
   renderTitleRace();
   renderReachTable();
@@ -244,9 +243,13 @@ function koMatchCard(m) {
         ${win && m.win_pct != null ? `<span class="slot-pct">${fmt(m.win_pct)}%</span>` : ""}
       </div>`;
   };
-  const tag = m.played
-    ? `<span class="ko-tag result">RESULT</span>`
-    : `<span class="ko-tag pred">MODEL PICK</span>`;
+  let tag;
+  if (m.played) {
+    const right = m.win_pct > 50;                 // model favored the actual winner
+    tag = `<span class="ko-tag ${right ? "result" : "upset"}">${right ? "✓ RESULT" : "✗ RESULT"}</span>`;
+  } else {
+    tag = `<span class="ko-tag pred">PREDICTION</span>`;
+  }
   return `<div class="match-card ${m.played ? "played" : "pred"}">${tag}${row(m.home)}${row(m.away)}</div>`;
 }
 
@@ -254,11 +257,18 @@ function renderUpdatedBracket() {
   const el = document.getElementById("knockoutBracket");
   if (!KO_BRACKET || !KO_BRACKET.rounds) { if (el) el.innerHTML = ""; return; }
 
+  let correct = 0, played = 0;
+  KO_BRACKET.rounds.forEach(r => r.matches.forEach(m => {
+    if (m.played) { played++; if (m.win_pct > 50) correct++; }
+  }));
+
   const stamp = document.getElementById("updatedStamp");
-  if (stamp && KO_BRACKET.updated) {
-    const d = new Date(KO_BRACKET.updated + "T12:00:00")
-      .toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
-    stamp.textContent = `Updated after the Group Stage · ${d}`;
+  if (stamp) {
+    const d = KO_BRACKET.updated
+      ? new Date(KO_BRACKET.updated + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
+      : "";
+    const acc = played ? ` · model ${correct}/${played} (${Math.round(correct / played * 100)}%) on knockouts` : "";
+    stamp.textContent = `Updated after the Group Stage · ${d}${acc}`;
   }
 
   const cols = KO_BRACKET.rounds.map(r => `
