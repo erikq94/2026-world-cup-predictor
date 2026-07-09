@@ -10,5 +10,18 @@
   {"home":"Spain","away":"Austria","winner":"Spain","score":"3–0"},
   {"home":"Belgium","away":"Senegal","winner":"Belgium","score":"3–2 (AET)"},
   {"home":"Portugal","away":"Croatia","winner":"Portugal","score":"2–1"},
-  {"home":"England","away":"DR Congo","winner":"England","score":"2–1"}
+  {"home":"England","away":"DR Congo","winner":"England","score":"2–1"},
+  {"home":"Switzerland","away":"Algeria","winner":"Switzerland","score":"2–0"},
+  {"home":"Australia","away":"Egypt","winner":"Egypt","score":"1–1 (2–4 pens)"},
+  {"home":"Argentina","away":"Cape Verde","winner":"Argentina","score":"3–2 (AET)"},
+  {"home":"Colombia","away":"Ghana","winner":"Colombia","score":"1–0"},
+  {"home":"Canada","away":"Morocco","winner":"Morocco","score":"0–3"},
+  {"home":"Paraguay","away":"France","winner":"France","score":"0–1"},
+  {"home":"Brazil","away":"Norway","winner":"Norway","score":"1–2"},
+  {"home":"Mexico","away":"England","winner":"England","score":"2–3"},
+  {"home":"Portugal","away":"Spain","winner":"Spain","score":"0–1"},
+  {"home":"United States","away":"Belgium","winner":"Belgium","score":"1–4"},
+  {"home":"Argentina","away":"Egypt","winner":"Argentina","score":"3–2"},
+  {"home":"Switzerland","away":"Colombia","winner":"Switzerland","score":"0–0 (4–3 pens)"}
 ]
+
