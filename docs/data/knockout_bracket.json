@@ -14,14 +14,14 @@
           "home": "Netherlands",
           "away": "Morocco",
           "winner": "Morocco",
-          "win_pct": 47.3,
+          "win_pct": 46.4,
           "played": true
         },
         {
           "home": "Germany",
           "away": "Paraguay",
           "winner": "Paraguay",
-          "win_pct": 21.7,
+          "win_pct": 21.6,
           "played": true
         },
         {
@@ -32,45 +32,17 @@
           "played": true
         },
         {
-          "home": "Brazil",
-          "away": "Japan",
-          "winner": "Brazil",
-          "win_pct": 65.2,
-          "played": true
-        },
-        {
-          "home": "Ivory Coast",
-          "away": "Norway",
-          "winner": "Norway",
-          "win_pct": 67.7,
-          "played": true
-        },
-        {
-          "home": "Mexico",
-          "away": "Ecuador",
-          "winner": "Mexico",
-          "win_pct": 51.3,
-          "played": true
-        },
-        {
-          "home": "England",
-          "away": "DR Congo",
-          "winner": "England",
-          "win_pct": 91.8,
-          "played": true
-        },
-        {
           "home": "Portugal",
           "away": "Croatia",
           "winner": "Portugal",
-          "win_pct": 67.9,
+          "win_pct": 65.9,
           "played": true
         },
         {
           "home": "Spain",
           "away": "Austria",
           "winner": "Spain",
-          "win_pct": 85.3,
+          "win_pct": 86.9,
           "played": true
         },
         {
@@ -84,7 +56,35 @@
           "home": "Belgium",
           "away": "Senegal",
           "winner": "Belgium",
-          "win_pct": 60.4,
+          "win_pct": 59.6,
+          "played": true
+        },
+        {
+          "home": "Brazil",
+          "away": "Japan",
+          "winner": "Brazil",
+          "win_pct": 65.2,
+          "played": true
+        },
+        {
+          "home": "Ivory Coast",
+          "away": "Norway",
+          "winner": "Norway",
+          "win_pct": 64.9,
+          "played": true
+        },
+        {
+          "home": "Mexico",
+          "away": "Ecuador",
+          "winner": "Mexico",
+          "win_pct": 51.3,
+          "played": true
+        },
+        {
+          "home": "England",
+          "away": "DR Congo",
+          "winner": "England",
+          "win_pct": 90.4,
           "played": true
         },
         {
@@ -98,14 +98,14 @@
           "home": "Australia",
           "away": "Egypt",
           "winner": "Egypt",
-          "win_pct": 46.3,
+          "win_pct": 45.9,
           "played": true
         },
         {
           "home": "Switzerland",
           "away": "Algeria",
           "winner": "Switzerland",
-          "win_pct": 70.6,
+          "win_pct": 69.6,
           "played": true
         },
         {
@@ -124,7 +124,7 @@
           "home": "Canada",
           "away": "Morocco",
           "winner": "Morocco",
-          "win_pct": 78.4,
+          "win_pct": 77.9,
           "played": true
         },
         {
@@ -135,10 +135,24 @@
           "played": true
         },
         {
+          "home": "Portugal",
+          "away": "Spain",
+          "winner": "Spain",
+          "win_pct": 75.5,
+          "played": true
+        },
+        {
+          "home": "United States",
+          "away": "Belgium",
+          "winner": "Belgium",
+          "win_pct": 86.8,
+          "played": true
+        },
+        {
           "home": "Brazil",
           "away": "Norway",
           "winner": "Norway",
-          "win_pct": 43.0,
+          "win_pct": 42.1,
           "played": true
         },
         {
@@ -149,31 +163,17 @@
           "played": true
         },
         {
-          "home": "Portugal",
-          "away": "Spain",
-          "winner": "Spain",
-          "win_pct": 73.4,
-          "played": true
-        },
-        {
-          "home": "United States",
-          "away": "Belgium",
-          "winner": "Belgium",
-          "win_pct": 87.2,
-          "played": true
-        },
-        {
           "home": "Argentina",
           "away": "Egypt",
           "winner": "Argentina",
-          "win_pct": 88.1,
+          "win_pct": 88.0,
           "played": true
         },
         {
           "home": "Switzerland",
           "away": "Colombia",
           "winner": "Switzerland",
-          "win_pct": 32.2,
+          "win_pct": 31.7,
           "played": true
         }
       ]
@@ -185,29 +185,29 @@
           "home": "Morocco",
           "away": "France",
           "winner": "France",
-          "win_pct": 70.2,
-          "played": false
-        },
-        {
-          "home": "Norway",
-          "away": "England",
-          "winner": "England",
-          "win_pct": 73.9,
-          "played": false
+          "win_pct": 72.1,
+          "played": true
         },
         {
           "home": "Spain",
           "away": "Belgium",
           "winner": "Spain",
-          "win_pct": 81.8,
-          "played": false
+          "win_pct": 81.7,
+          "played": true
+        },
+        {
+          "home": "Norway",
+          "away": "England",
+          "winner": "England",
+          "win_pct": 75.0,
+          "played": true
         },
         {
           "home": "Argentina",
           "away": "Switzerland",
           "winner": "Argentina",
-          "win_pct": 83.2,
-          "played": false
+          "win_pct": 84.0,
+          "played": true
         }
       ]
     },
@@ -216,16 +216,16 @@
       "matches": [
         {
           "home": "France",
-          "away": "England",
-          "winner": "France",
-          "win_pct": 60.8,
-          "played": false
+          "away": "Spain",
+          "winner": "Spain",
+          "win_pct": 54.3,
+          "played": true
         },
         {
-          "home": "Spain",
+          "home": "England",
           "away": "Argentina",
-          "winner": "Spain",
-          "win_pct": 53.5,
+          "winner": "Argentina",
+          "win_pct": 66.2,
           "played": false
         }
       ]
@@ -234,15 +234,15 @@
       "round": "Final",
       "matches": [
         {
-          "home": "France",
-          "away": "Spain",
+          "home": "Spain",
+          "away": "Argentina",
           "winner": "Spain",
-          "win_pct": 53.9,
+          "win_pct": 53.5,
           "played": false
         }
       ]
     }
   ],
   "champion": "Spain",
-  "updated": "2026-07-08"
+  "updated": "2026-07-14"
 }

@@ -44,12 +44,16 @@ def wc_results_as_matches():
 # The actual bracket in tree order: consecutive pairs of R32 matches feed each
 # R16 slot, and so on up to the final (from the official 2026 bracket).
 R32_TREE_ORDER = [
+    # Quarter that produces France's side...
     ("Canada", "South Africa"), ("Netherlands", "Morocco"),
     ("Germany", "Paraguay"), ("France", "Sweden"),
-    ("Brazil", "Japan"), ("Ivory Coast", "Norway"),
-    ("Mexico", "Ecuador"), ("England", "DR Congo"),
+    # ...paired with Spain's side, so France & Spain meet in one semifinal
     ("Portugal", "Croatia"), ("Spain", "Austria"),
     ("United States", "Bosnia and Herzegovina"), ("Belgium", "Senegal"),
+    # England's side...
+    ("Brazil", "Japan"), ("Ivory Coast", "Norway"),
+    ("Mexico", "Ecuador"), ("England", "DR Congo"),
+    # ...paired with Argentina's side, so England & Argentina meet in the other semifinal
     ("Argentina", "Cape Verde"), ("Australia", "Egypt"),
     ("Switzerland", "Algeria"), ("Colombia", "Ghana"),
 ]
