@@ -27,6 +27,8 @@
   {"home":"Spain","away":"Belgium","winner":"Spain","score":"2–1"},
   {"home":"England","away":"Norway","winner":"England","score":"2–1"},
   {"home":"Argentina","away":"Switzerland","winner":"Argentina","score":"3–1"},
-  {"home":"Spain","away":"France","winner":"Spain","score":"2–0"}
+  {"home":"Spain","away":"France","winner":"Spain","score":"2–0"},
+  {"home":"England","away":"Argentina","winner":"Argentina","score":"1–2"},
+  {"home":"Spain","away":"Argentina","winner":"Spain","score":"1–0 (AET)"}
 ]
 

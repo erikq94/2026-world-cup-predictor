@@ -22,18 +22,18 @@
     "home": "Germany",
     "away": "Paraguay",
     "pick": "Germany",
-    "pick_pct": 78.4,
-    "home_pct": 78.4,
-    "away_pct": 21.6
+    "pick_pct": 78.3,
+    "home_pct": 78.3,
+    "away_pct": 21.7
   },
   {
     "round": "Round of 32",
     "home": "Netherlands",
     "away": "Morocco",
     "pick": "Netherlands",
-    "pick_pct": 53.6,
-    "home_pct": 53.6,
-    "away_pct": 46.4
+    "pick_pct": 53.7,
+    "home_pct": 53.7,
+    "away_pct": 46.3
   },
   {
     "round": "Round of 32",
@@ -49,9 +49,9 @@
     "home": "France",
     "away": "Sweden",
     "pick": "France",
-    "pick_pct": 84.5,
-    "home_pct": 84.5,
-    "away_pct": 15.5
+    "pick_pct": 85.2,
+    "home_pct": 85.2,
+    "away_pct": 14.8
   },
   {
     "round": "Round of 32",
@@ -76,9 +76,9 @@
     "home": "Spain",
     "away": "Austria",
     "pick": "Spain",
-    "pick_pct": 86.9,
-    "home_pct": 86.9,
-    "away_pct": 13.1
+    "pick_pct": 87.0,
+    "home_pct": 87.0,
+    "away_pct": 13.0
   },
   {
     "round": "Round of 32",
@@ -103,9 +103,9 @@
     "home": "Switzerland",
     "away": "Algeria",
     "pick": "Switzerland",
-    "pick_pct": 69.6,
-    "home_pct": 69.6,
-    "away_pct": 30.4
+    "pick_pct": 69.1,
+    "home_pct": 69.1,
+    "away_pct": 30.9
   },
   {
     "round": "Round of 32",

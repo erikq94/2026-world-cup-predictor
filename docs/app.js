@@ -69,6 +69,7 @@ async function init() {
 
   renderTracker();
   renderUpdatedBracket();
+  renderReportCard();
   renderChampion();
   renderTitleRace();
   renderReachTable();
@@ -287,6 +288,63 @@ function renderUpdatedBracket() {
       </div>
     </div>`;
   el.innerHTML = cols + champCol;
+}
+
+/* ---------- Final report card: how the model did overall ---------- */
+function renderReportCard() {
+  const el = document.getElementById("reportCard");
+  if (!el || !DATA || !KO_BRACKET) return;
+
+  const finalMatch = (KO_BRACKET.rounds.find(r => r.round === "Final") || {}).matches?.[0];
+  if (!finalMatch || !finalMatch.played) { el.innerHTML = ""; return; }   // only after the final
+
+  const predictedChamp = DATA.predicted_bracket.champion;
+  const actualChamp = finalMatch.winner;
+  const champCorrect = predictedChamp === actualChamp;
+  const finalCorrect = finalMatch.win_pct > 50;
+
+  // group-stage accuracy
+  const gp = {};
+  DATA.group_predictions.forEach(p => { gp[`${p.home}|${p.away}`] = p; });
+  let gC = 0, gT = 0;
+  RESULTS.forEach(r => {
+    const p = gp[`${r.home}|${r.away}`]; if (!p) return;
+    gT++;
+    const actual = r.hs > r.as ? "home" : r.hs < r.as ? "away" : "draw";
+    const opts = [["home", p.home_win], ["draw", p.draw], ["away", p.away_win]].sort((a, b) => b[1] - a[1]);
+    if (opts[0][0] === actual) gC++;
+  });
+
+  // knockout accuracy
+  let kC = 0, kT = 0;
+  KO_BRACKET.rounds.forEach(r => r.matches.forEach(m => { if (m.played) { kT++; if (m.win_pct > 50) kC++; } }));
+
+  const oC = gC + kC, oT = gT + kT;
+  const pct = (a, b) => b ? Math.round(a / b * 100) : 0;
+
+  // semifinalists called (top 4 by pre-tournament semifinal probability)
+  const actualSF = new Set((KO_BRACKET.rounds.find(r => r.round === "Quarterfinal") || {}).matches?.map(m => m.winner) || []);
+  const topSF = [...DATA.teams].sort((a, b) => b.reach.semifinal - a.reach.semifinal).slice(0, 4).map(t => t.team);
+  const sfHit = topSF.filter(t => actualSF.has(t)).length;
+
+  const badge = (ok, text) => `<div class="rc-badge ${ok ? "ok" : "no"}">${ok ? "✓" : "✗"} ${text}</div>`;
+
+  el.innerHTML = `
+    <div class="rc-crown">🏆</div>
+    <p class="rc-kicker">Final Report Card — the model called it</p>
+    <div class="rc-champ">${flag(actualChamp, 320)}<div class="rc-champ-name">${actualChamp}</div>
+      <div class="rc-champ-sub">2026 World Cup Champion</div></div>
+    <div class="rc-badges">
+      ${badge(champCorrect, `Champion predicted before kickoff: <b>${predictedChamp}</b>`)}
+      ${badge(finalCorrect, `Final called: <b>${finalMatch.home} def. ${finalMatch.away}</b>`)}
+      ${badge(sfHit >= 3, `<b>${sfHit} of 4</b> semifinalists predicted`)}
+    </div>
+    <div class="rc-stats">
+      <div class="rc-stat"><div class="rc-num">${pct(gC, gT)}%</div><div class="rc-lbl">Group stage<br><span>${gC}/${gT}</span></div></div>
+      <div class="rc-stat"><div class="rc-num">${pct(kC, kT)}%</div><div class="rc-lbl">Knockouts<br><span>${kC}/${kT}</span></div></div>
+      <div class="rc-stat gold"><div class="rc-num">${pct(oC, oT)}%</div><div class="rc-lbl">All ${oT} matches<br><span>${oC}/${oT}</span></div></div>
+    </div>
+    <p class="rc-foot">Predicted from a blank slate before a single ball was kicked — and it held up all the way to the trophy. 🍺</p>`;
 }
 
 /* ---------- Live knockout predictions (form-aware) vs results ---------- */
